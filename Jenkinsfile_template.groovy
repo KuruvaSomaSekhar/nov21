@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage("clone code") {
             steps {
-                println "Here I'm cloning the code"
+                println "Here I'm cloning the code to jenkins machine"
             }
         }
         stage("Build code") {
