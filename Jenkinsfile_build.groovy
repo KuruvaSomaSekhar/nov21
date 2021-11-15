@@ -6,8 +6,8 @@ pipeline {
             steps {
                 println "Clone our code to our repo"
                 sh "ls -l"
-                checkout([$class: 'GitSCM',branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[ url: 'https://github.com/KuruvaSomaSekhar/nov21.git']]])
-                sh "ls -lart ./*"
+                //checkout([$class: 'GitSCM',branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[ url: 'https://github.com/KuruvaSomaSekhar/nov21.git']]])
+                //sh "ls -lart ./*"
             }
         }
         stage("Build code"){
