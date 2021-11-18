@@ -8,8 +8,6 @@ pipeline {
         stage("Checkout code") {
             steps {
                 println "Clone our code to our repo"
-               // println $BRANCH
-               // println "${BRANCH}"
                 sh "ls -l"
                 sh "ls -lart ./*"
                 git branch: "${BRANCH_NAME}",
