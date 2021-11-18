@@ -4,6 +4,8 @@ pipeline{
    parameters {
     string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'From which branch artifacts want to deploy?')
     string(name: 'BUILD_NUM', defaultValue: '', description: 'From which build number artifacts want to deploy?')
+    string(name: 'SERVER_IP', defaultValue: '', description: 'To  which want to deploy?')
+
   }
     stages{
         stage("download artifact"){
@@ -13,6 +15,8 @@ pipeline{
                         aws s3 ls
                         aws s3 ls s3://somuart
                         aws s3 ls s3://somuart/${BRANCH_NAME}/${BUILD_NUM}/
+                        aws s3 cp s3://somuart/${BRANCH_NAME}/${BUILD_NUM}/hello-${BUILD_NUM}.war .
+ 
 
                    """
                 
@@ -21,6 +25,7 @@ pipeline{
         stage("copy artifacts") {
             steps {
                 println "Here I'm coping artifact from Jenkins to Tomcat servers"
+                sh "ssh -i /tmp/nov21nv.pem ec2-user@${SERVER_IP} "systemctl status tomcat""
             }
         }
     }
