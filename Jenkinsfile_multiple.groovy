@@ -8,7 +8,7 @@ pipeline{
             steps {
                 sh """
                    IFS=',' read -ra ADDR <<< "${SERVERIPS}"
-                    for ip in "${ADDR[@]}"; 
+                    for ip in \"${ADDR[@]}\"; 
                     do
                     echo $ip
                      # process "$i"
