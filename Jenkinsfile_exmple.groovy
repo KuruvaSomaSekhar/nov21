@@ -14,9 +14,9 @@ pipeline {
 
                 script {
                     if (env.ENVIRONMENT_NAME == 'QA') {
-                        SERVERS = ["1.1.1.1",""]
+                        SERVERS = ["1.1.1.1","1.1.1.2"]
                     } else if (env.ENVIRONMENT_NAME == 'DEV') {
-                        SERVERS = ["1.1.2.1","1.1.2.2"]
+                        SERVERS = ["1.1.2.1","1.1.2.2","1.1.2.3"]
                     }
                     println SERVERS.size()
                    // echo SERVERS
