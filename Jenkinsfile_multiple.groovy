@@ -6,7 +6,7 @@ pipeline{
         stage("Multiple servers")
         {
             steps {
-                sh """
+                sh '''
                    IFS=',' read -ra ADDR <<< "${SERVERIPS}"
                     for ip in \"${ADDR[@]}\"; 
                     do
@@ -15,7 +15,7 @@ pipeline{
                     done
                    
                    
-                   """
+                   '''
             }
         }
     }
