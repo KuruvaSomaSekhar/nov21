@@ -11,6 +11,8 @@ pipeline{
                     for ip in \"${ADDR[@]}\"; 
                     do
                     echo $ip
+                    echo "Here we can use scp command"
+                    ssh -o stricthostkeychecking=no -i /tmp/nov21nv.pem ec2-user@$ip "hostname"
                      # process "$i"
                     done
                    
