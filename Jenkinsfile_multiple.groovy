@@ -1,6 +1,7 @@
 //declarative pipeline
 pipeline{
     agent any
+    
     parameters { 
         string(name: 'SERVERIPS', defaultValue: '', description: '') 
         string(name: 'BRANCH', defaultValue: '', description: '')
