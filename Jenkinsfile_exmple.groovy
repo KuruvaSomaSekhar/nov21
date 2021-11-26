@@ -14,7 +14,7 @@ pipeline {
 
                 script {
                     if (env.ENVIRONMENT_NAME == 'QA') {
-                        SERVERS = ["1.1.1.1","1.1.1.2"]
+                        SERVERS = ["172.31.93.44","172.31.85.14"]
                     } else if (env.ENVIRONMENT_NAME == 'DEV') {
                         SERVERS = ["1.1.2.1","1.1.2.2","1.1.2.3"]
                     }
@@ -24,6 +24,7 @@ pipeline {
                      sh '''
                         echo "download warfirle from s3"
                         echo "scp file to ${item}"
+                        ssh -o stricthostkeychecking=no -i /tmp/nov21nv.pem ec2-user@${item} "hostname"
                         '''
                         }
                    // echo SERVERS
