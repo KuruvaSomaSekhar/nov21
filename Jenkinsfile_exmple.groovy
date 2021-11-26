@@ -21,11 +21,12 @@ pipeline {
                     println SERVERS.size()
                     for(item in SERVERS){
                      println item
-                     sh '''
+                     sh 'echo $item'
+                     sh """
                         echo "download warfirle from s3"
                         echo "scp file to $item"
                         ssh -o stricthostkeychecking=no -i /tmp/nov21nv.pem ec2-user@$item "hostname"
-                        '''
+                        """
                         }
                    // echo SERVERS
                 }
