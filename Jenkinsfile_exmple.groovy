@@ -13,9 +13,9 @@ pipeline {
                 echo 'Building Container..'
 
                 script {
-                    if (${ENVIRONMENT_NAME} == 'QA') {
+                    if (env.ENVIRONMENT_NAME == 'QA') {
                         SERVERS = ["1.1.1.1",""]
-                    } else if (${ENVIRONMENT_NAME} == 'DEV') {
+                    } else if (env.ENVIRONMENT_NAME == 'DEV') {
                         SERVERS = ["1.1.2.1","1.1.2.2"]
                     }
                     println SERVERS.size()
